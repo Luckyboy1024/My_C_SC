@@ -15,3 +15,38 @@ unsigned int MyStrlen(const char *str)
 	return count;
 }
 
+//模拟实现 strcpy() 函数
+char *MyStrcpy(char* dest, const char* src)
+{
+	assert(dest != NULL && src != NULL);
+	char *p = dest;
+	while (*src != '\0')
+	{
+		*dest = *src;
+		++dest;
+		++src;
+	}
+	*dest = '\0';
+	return p;
+}
+
+//char *MyStrcpy(char* dest, const char* src)
+//{
+//	assert(dest != NULL && src != NULL);
+//	char *p = dest;
+//	while (*dest++ = *src++);
+//	return p;
+//}
+
+//模拟实现 strcat 函数
+char *MyStrcat(char *dest, const char *src)
+{
+	assert(dest != NULL && src != NULL);
+	char *p = dest;
+	while (*dest != '\0')
+	{
+		++dest;
+	}
+	while (*dest++ = *src++);
+	return p;
+}

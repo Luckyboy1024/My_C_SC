@@ -4,5 +4,6 @@
 
 int main()
 {
+	MyStrcpy("hello ", "girl");
 	return 0;
 }

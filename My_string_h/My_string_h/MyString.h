@@ -5,6 +5,8 @@
 #include "head.h"
 
 unsigned int MyStrlen(const char *str);
+char *MyStrcpy(char* dest, const char* src);
+char* MyStrcat(char* dest, const* crs);
 
 
 

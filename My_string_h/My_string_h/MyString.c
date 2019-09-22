@@ -50,3 +50,99 @@ char *MyStrcat(char *dest, const char *src)
 	while (*dest++ = *src++);
 	return p;
 }
+
+
+//模拟实现 strcmp 函数
+int MyStrcmp(const char *str1, const char *str2)
+{
+	assert(str1 && str2);
+	while (*str1 == *str2)
+	{
+		if (*str1 == '\0')
+			return 0;
+		++str1;
+		++str2;
+	}
+	if (*str1 > *str2)
+		return 1;
+	else
+		return -1;
+}
+
+//模拟实现 strncpy 函数
+char *MyStrncpy(char *dest, const char *src, int n)
+{
+	assert(dest && src);
+	char *p = dest;
+	while (n--)
+	{
+		*dest = *src;
+		++dest;
+		++src;
+	}
+	return p;
+}
+
+//模拟实现 strncat 函数
+char *MyStrncat(char* dest, const char* src, int n)
+{
+	char *p = dest;
+	int count = 0;
+	assert(dest && src);
+	while ('\0' != *dest)
+	{
+		++dest;
+	}
+	while (count < n)
+	{
+		*dest++ = *src++;
+		count++;
+	}
+	*dest = '\0';
+	return p;
+}
+
+//模拟实现 strncmp 函数
+int MyStrncmp(const char *str1, const char *str2, int n)
+{
+	int diff = 0;
+	int count = 0;
+	assert(str1 && str2);
+	while (count < n && (diff = *str1 - *str2) == 0 && *str1 != '\0')
+	{
+		++str1;
+		++str2;
+		++count;
+	}
+	return diff;
+}
+
+//暴力算法实现 strstr 函数
+const char *MyStrstr(const char* str1, const char* str2)
+{
+	assert(str1 && str2);
+	const char *s1 = str1;
+	const char *s2 = str2;
+	const char *start = s1;
+	while (*s1 != '\0')
+	{
+		s1 = start;
+		s2 = str2;
+		while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
+		{
+			++s1;
+			++s2;
+		}
+		if (*s1 == '\0')
+		{
+			return NULL;
+		}
+		if (*s2 == '\0')
+		{
+			return start;
+		}
+		start++;
+	}
+}
+
+

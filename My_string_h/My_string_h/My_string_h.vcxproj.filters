@@ -21,6 +21,9 @@
     <ClCompile Include="MyString.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="C_test.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyString.h">

@@ -6,8 +6,14 @@
 
 unsigned int MyStrlen(const char *str);
 char *MyStrcpy(char* dest, const char* src);
-char* MyStrcat(char* dest, const* crs);
+char *MyStrcat(char* dest, const char* src);
+int MyStrcmp(const char *str1, const char *str2);
+char *MyStrncpy(char* dest, const char* src, int n);
+char *MyStrncat(char* dest, const char* src, int n);
+int MyStrncmp(const char *str1, const char *str2, int n);
 
+
+const char *MyStrstr(const char* str1, const char* str2);
 
 
 #endif //__STRING_H__

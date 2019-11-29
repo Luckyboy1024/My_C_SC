@@ -145,4 +145,38 @@ const char *MyStrstr(const char* str1, const char* str2)
 	}
 }
 
+//模拟实现 memcpy 函数
+void *MyMemcpy(void *dest, const void *src, int count)
+{
+	assert(dest && src);
+	char *p = (char*)dest;
+	while (count--)
+	{
+		*p = *(char*)src;		//类型强转，char大小一个字节
+		p++;
+		((char*)src)++;
+	}
+	return dest;
+}
 
+//模拟实现 memmove 函数
+void *MyMemmove(void *dest, const void *src, int count)
+{
+	assert(dest && src);
+	void *ret = dest;
+	if (dest < src)
+	{
+		while (count--){
+			*(char*)dest = *(char*)src;
+			((char*)dest)++;
+			((char*)src)++;
+		}
+	}
+	else
+	{
+		while (count--){
+			*((char*)dest + count) = *((char*)src + count);
+		}
+	}
+	return ret;
+}

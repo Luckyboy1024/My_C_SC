@@ -15,5 +15,8 @@ int MyStrncmp(const char *str1, const char *str2, int n);
 
 const char *MyStrstr(const char* str1, const char* str2);
 
+void *MyMemcpy(void *dest, const void *src, int count);
+void *MyMemmove(void *dest, const void *src, int count);
+
 
 #endif //__STRING_H__

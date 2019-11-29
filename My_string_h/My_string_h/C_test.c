@@ -1,5 +1,64 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
+#include <stdio.h>
+#include <string.h>
+
+void *Mymemmove(void *dest, const void *src, int count)
+{
+	void *ret = dest;
+	if (dest < src)
+	{
+		while (count--){
+			*(char*)dest = *(char*)src;
+			((char*)dest)++;
+			((char*)src)++;
+		}
+	}
+	else
+	{
+		while (count--){
+			*((char*)dest + count) = *((char*)src + count);
+		}
+	}
+	return ret;
+}
+
+int main()
+{
+	int arr1[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	int arr2[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	int arr3[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	memmove(arr1 + 2, arr1, 16);
+	Mymemmove(arr2 + 2, arr2, 16);
+	Mymemmove(arr3, arr3+2, 16);
+	return 0;
+}
+
+#if 0
+void *Mymemcpy(void *dest, const void *src, int count)
+{
+	char *p = (char*)dest;
+	while (count--)
+	{
+		*p = *(char*)src;		//类型强转，char大小一个字节
+		p++;
+		((char*)src)++;
+	}
+	return dest;
+}
+
+
+
+int main()
+{
+	int arr1[20] = { 0 };
+	int arr2[] = { 1, 2, 3, 4, 5, 6 };
+	char str1[10] = { 0 };
+	char str2[] = "abcdef";
+	memcpy(str1, str2, 4);
+	memcpy(arr1, arr2, 16);		//memcpy 的num参数单位是字节
+	return 0;
+}
 
 /* isupper example */
 #include <stdio.h> 
@@ -19,10 +78,6 @@ int main ()
 	} 
 	return 0; 
 } 
-
-
-#if 0
-
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
